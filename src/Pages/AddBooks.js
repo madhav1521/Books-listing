@@ -1,11 +1,15 @@
 import React from 'react'
-import Header from '../Components/Header'
+import BookForm from '../Components/BookForm'
+
 
 export default function AddBooks() {
+  const addBookHandler = (bookData) => {
+    console.log(bookData);
+    
+  }
   return (
-    <div>
-    <Header />
-      This is adding of new books 
-    </div>
+    <React.Fragment>
+      <BookForm onAddBook={addBookHandler} />
+    </React.Fragment>
   )
 }
