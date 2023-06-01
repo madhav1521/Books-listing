@@ -33,7 +33,7 @@ code {
 .item-title{display: flex;color: black; font-weight: 600;}
 .item-title > p + p{margin-left: 20px;font-style: italic;color: ghostwhite;font-weight: 400;}
 .item-btn{display: flex; justify-content: flex-end; padding: 10px 20px; border: 1px solid transparent;border-radius: 5px; cursor: pointer; background-color: blueviolet; color: aliceblue; font-weight: 600;}
-.item-btn:hover{background-color: rgba(103, 21, 180, 0.761)}
+.item-btn:hover, .logout-btn:hover{cursor: pointer; background-color: rgba(103, 21, 180, 0.761)}
 .item-btn a{text-decoration: none; color: aliceblue;}
 
 /* book-form ============================================= */
@@ -45,12 +45,12 @@ code {
 .input-div > label{color: #2a2a2a; font-size: 18px; font-weight: 600; }
 .input-div > input{max-width: 100%; padding:10px 5px;font-size: 18px; border-radius: 5px; border: 1px solid #2a2a2a;}
 .input-div > textarea{max-width: 100%; padding:10px 5px;font-size: 18px; border-radius: 5px; border: 1px solid #2a2a2a;}
-.input-div > button{width: max-content; padding: 10px 20px; border-radius: 5px; border: 1px solid transparent; background-color: blueviolet; color: aliceblue; font-weight:600;}
+.input-div > button, .logout-btn {width: max-content; padding: 10px 20px; border-radius: 5px; border: 1px solid transparent; background-color: blueviolet; color: aliceblue; font-weight:600;}
 .bookdetails-card{background-color: antiquewhite;}
 
 .allbooks-sort{max-width: 700px; margin:30px auto;padding: 10px;}
 .allbooks-sort button{padding: 10px 20px; background-color: transparent; color:blueviolet;font-weight: 600;border-radius: 5px; border: 1px solid blueviolet;}
-.allbooks-sort button:hover,.allbooks-sort button:focus,.allbooks-sort button:active{ background-color: rgba(192, 84, 239, 0.204); }
+.allbooks-sort button:hover,.allbooks-sort button:focus,.allbooks-sort button:active {cursor: pointer; background-color: rgba(192, 84, 239, 0.204); }
 
 
 

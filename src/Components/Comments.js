@@ -19,13 +19,6 @@ export default function Comments(props) {
           </div>
         </div>
         <p className='description'>{props.description}</p>
-         {/* {props.comments.map(comment => (
-          <div key={comment.id}>
-            <p>{comment.text}</p>
-            <p>By: {comment.author}</p>
-          </div>
-        ))} */}
-
       </Card>
     </div>
   )

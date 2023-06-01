@@ -4,17 +4,12 @@ import { Link } from 'react-router-dom'
 import BookDetail from '../Pages/BookDetail'
 
 export default function BookItem(props) {
-    const [shown, isShown] = useState(false);
+    const [shown, setShown] = useState(false);
 
     const onShownHandler = (e) => {
         e.preventDefault();
-        isShown(true);
+        setShown(true);
     };
-
-    // const closeBookDetails = (e) => {
-    //     e.preventDefault();
-    //     isShown(false);
-    // };
 
     return (
         <React.Fragment>

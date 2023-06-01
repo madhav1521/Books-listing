@@ -85,8 +85,10 @@ export default function AllBooks(props) {
   const queryParams = new URLSearchParams(location.search);
 
   const isAscendingSorting = queryParams.get('sort') === 'asc';
-  const sortedBooks = sortBooks(props.books || dummy_data, isAscendingSorting);
+  const sortedBooks = sortBooks( props.books || dummy_data, isAscendingSorting);
 
+  console.log('location:' , location.search)
+  console.log('sortedbooks:' , sortedBooks)
   const changeSortingHandler = () => {
     history.push(`${location.pathname}?sort=${(isAscendingSorting ? 'desc' : 'asc')}`);
   };
@@ -100,7 +102,6 @@ export default function AllBooks(props) {
         <hr />
         {sortedBooks.map((book) => (
           <BookItem
-          // dummy_data={dummy_data}
             key={book.id}
             id={book.id}
             title={book.title}
