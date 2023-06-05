@@ -9,7 +9,8 @@ export default function Comments(props) {
 
   // const params = useParams();
   // const match = useRouteMatch();
-  const commentHandler = () => {
+  const commentHandler = (e) => {
+    e.preventDefault();
     setIsCommented(true);
 
   }
@@ -17,16 +18,11 @@ export default function Comments(props) {
   const submitCommentHandler = (e) => {
     e.preventDefault();
     setComment((prevComments) => [...prevComments, enteredComment]);
-    setEnteredComment('');
   };
 
   const inputChangeHandler = (e) => {
-    // setComment(e.target.value);
-    setEnteredComment(e.target.value);
-  }
-  const inputLists = (e) => {
     e.preventDefault();
-    console.log(comment);
+    setEnteredComment(e.target.value);
   }
 
 
@@ -42,12 +38,12 @@ export default function Comments(props) {
               <>
                 <form onSubmit={submitCommentHandler}>
                   <textarea rows={4} value={enteredComment} onChange={inputChangeHandler} placeholder="Add Comment" />
-                  <button onClick={inputLists} className='item-btn'><Link to={`/all-books`} >Comment it</Link></button>
+                  <button className='item-btn'>Comment it</button>
                 </form>
                 
               </>
             }
-            {comment.trim().length > 0 && (
+            {comment.length > 0 && (
               <ul>
                 {comment.map((comment, index) => (
                   <li key={index}>{comment}</li>
@@ -70,7 +66,7 @@ export default function Comments(props) {
             </button>
           </div>
         </div>
-      {<li>{enteredComment}</li>}
+      
       </Card>
     </div>
   )
