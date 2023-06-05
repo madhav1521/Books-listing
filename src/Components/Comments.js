@@ -1,24 +1,76 @@
-import React from 'react'
-import { Link, } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useParams, useRouteMatch, } from 'react-router-dom'
 import Card from '../UI/Card'
 
 export default function Comments(props) {
+  const [isCommented, setIsCommented] = useState(false);
+  const [comment, setComment] = useState('');
+  const [enteredComment, setEnteredComment] = useState('');
+
+  // const params = useParams();
+  // const match = useRouteMatch();
+  const commentHandler = () => {
+    setIsCommented(true);
+
+  }
+
+  const submitCommentHandler = (e) => {
+    e.preventDefault();
+    setComment((prevComments) => [...prevComments, enteredComment]);
+    setEnteredComment('');
+  };
+
+  const inputChangeHandler = (e) => {
+    // setComment(e.target.value);
+    setEnteredComment(e.target.value);
+  }
+  const inputLists = (e) => {
+    e.preventDefault();
+    console.log(comment);
+  }
+
+
+
   return (
     <div>
-      <Card className='book-item allbooks-card'>
+      <Card className='book-item allbooks-card comments-page'>
         <h2>Book Comments</h2>
         <div className='item-data'>
-          <div className='item-title'>
-            <p>{props.title}</p>
-            <p>~{props.author}</p>
+          <div className='comment-title'>
+            <p>Add Comments Here</p>
+            {isCommented &&
+              <>
+                <form onSubmit={submitCommentHandler}>
+                  <textarea rows={4} value={enteredComment} onChange={inputChangeHandler} placeholder="Add Comment" />
+                  <button onClick={inputLists} className='item-btn'><Link to={`/all-books`} >Comment it</Link></button>
+                </form>
+                
+              </>
+            }
+            {comment.trim().length > 0 && (
+              <ul>
+                {comment.map((comment, index) => (
+                  <li key={index}>{comment}</li>
+                ))}
+              </ul>
+            )}
+            
+            {!isCommented && <>
+              <div>
+                {!comment && <p>No Comments Yet!</p>}
+                {/* {comment} */}
+              </div>
+              <button onClick={commentHandler} className='item-btn'> Add Comment</button>
+            </>}
           </div>
+          {/* <p className='description'>{props.description}</p> */}
           <div>
             <button className='item-btn' >
-              <Link to={`/all-books/`} >go back</Link>
+              <Link to={`/all-books`} >go back</Link>
             </button>
           </div>
         </div>
-        <p className='description'>{props.description}</p>
+      {<li>{enteredComment}</li>}
       </Card>
     </div>
   )

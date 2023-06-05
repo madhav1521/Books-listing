@@ -53,7 +53,9 @@ code {
 .allbooks-sort button:hover,.allbooks-sort button:focus,.allbooks-sort button:active {cursor: pointer; background-color: rgba(192, 84, 239, 0.204); }
 
 
-
+.highlighted-book{max-width: 700px; margin:30px auto;padding: 10px;background-color: rgb(125, 156, 162);border-radius: 10px;}
+.comments-page{text-align: center;}
+.comment-title {margin: 0; display: block;}
 
 
 

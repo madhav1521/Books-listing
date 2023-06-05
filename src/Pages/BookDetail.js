@@ -1,6 +1,8 @@
 import React from 'react'
 import { useParams, Route, Link, useRouteMatch } from 'react-router-dom'
 import HighBookDetail from '../Components/highBookDetail';
+// import Comments from '../Components/Comments';
+import BookItem from '../Components/BookItem';
 import Comments from '../Components/Comments';
 
 const dummy_data = [
@@ -68,17 +70,10 @@ const dummy_data = [
 
 export default function BookDetail(props) {
     const params = useParams();
-    // const {bookdetails} = params;
     const match = useRouteMatch();
-    
+
     const bookID = parseInt(params.bookdetails);
-    const book = dummy_data.find(book => book.id === bookID);
-    
-    // const details = dummy_data.find(detail => detail.id === bookID);
-    console.log('bookdetails: ' , params.bookdetails)
-    console.log('details data:', dummy_data[0].id)
-    console.log('detail data:', bookID)
-    console.log('match:', match)
+    const book = dummy_data.find((book) => book.id === bookID);
 
     if (!book) {
         return <h1>Book not found</h1>;
@@ -87,23 +82,13 @@ export default function BookDetail(props) {
     return (
         <div>
             <HighBookDetail title={book.title} author={book.author} description={book.description} />
-            <Route path={`/${match.path}`} exact >
-                <div >
-                    <Link to={`/${match.url}/comments`} > Load Books</Link>
+            <Route path={match.path} exact >
+                <div style={{textAlign:'center'}} >
+                    <Link to={`${match.url}/comments`} > Load Comments</Link>
                 </div>
             </Route>
-            <Route path={`/${match.path}/comments`}>
-                {/* {book.map((book) => {
-                    return ( */}
-                        <Comments
-                            key={book.id}
-                            id={book.id}
-                            title={book.title}
-                            author={book.author}
-                            description={book.description}
-                        />
-                    {/* )
-                })} */}
+            <Route path={`${match.path}/comments`}>
+                <Comments />
             </Route>
         </div>
     )

@@ -28,10 +28,10 @@ export default function BookItem(props) {
                 <p className='description'>{props.description}</p>
 
             </Card>
-            {shown &&
+            {/* {shown &&
                 (<Card className='bookdetails-card allbooks-card' >
                     <BookDetail />
-                </Card>)}
+                </Card>)} */}
         </React.Fragment>
     )
 }
